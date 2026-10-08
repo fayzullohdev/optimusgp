@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="uz">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Optimus GP — Rasmiy Sayt</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="#">Optimus GP</a>
+      <nav>
+        <a href="#features">Xususiyatlar</a>
+        <a href="#guide">Qollanma</a>
+        <a href="#download" class="cta">Yuklab olish</a>
+      </nav>
+    </div>
+    <style>
+      :root {
+        --bg: #0f1720;
+        --card: #0b1220;
+        --muted: #9aa4b2;
+        --accent: #6ee7b7;
+        --accent-2: #60a5fa;
+      }
+
+      * {
+        box-sizing: border-box
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, Segoe UI, Arial, sans-serif;
+        background: linear-gradient(180deg, var(--bg), #07101a);
+        color: #e6eef6;
+        line-height: 1.5
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(12px);
+        background: linear-gradient(180deg, rgba(2, 6, 23, 0.692), rgba(2, 6, 23, .35));
+        border-bottom: 1px solid rgba(255, 255, 255, .03);
+        z-index: 60
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+      }
+
+      .logo {
+        font-weight: 700;
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 1.05rem
+      }
+
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        margin-left: 18px
+      }
+
+      nav a.cta {
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        padding: 8px 12px;
+        border-radius: 8px;
+        color: #04202b
+      }
+
+      .hero {
+        padding: 72px 0
+      }
+
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 32px;
+        align-items: center
+      }
+
+      .hero-art {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center
+      }
+
+      .hero-art .card {
+        max-width: 320px
+      }
+
+      .hero-art img {
+        max-width: 100%;
+        max-height: 300px;
+        object-fit: contain;
+        display: block
+      }
+
+      .hero-copy h1 {
+        font-size: 2.1rem;
+        margin: 0 0 12px
+      }
+
+      .hero-copy p {
+        color: var(--muted);
+        margin: 0 0 18px
+      }
+
+      .buttons .btn {
+        display: inline-block;
+        margin-right: 10px
+      }
+
+      .btn {
+        padding: 10px 16px;
+        border-radius: 10px;
+        background: transparent;
+        color: var(--accent);
+        border: 1px solid rgba(110, 231, 183, .12);
+        text-decoration: none
+      }
+
+      .btn.primary {
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        color: #012023;
+        border: 0
+      }
+
+      .card {
+        background: linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(255, 255, 255, .01));
+        padding: 18px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, .03)
+      }
+
+      .card img {
+        max-width: 100%;
+        display: block
+      }
+
+      .section {
+        padding: 56px 0
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px
+      }
+
+      .card h3 {
+        margin: 0 0 8px
+      }
+
+      .meta {
+        list-style: none;
+        padding: 0;
+        margin: 12px 0 0;
+        color: var(--muted)
+      }
+
+      .guide ol,
+      .guide ul {
+        color: var(--muted)
+      }
+
+      .footer-cta {
+        background: linear-gradient(180deg, rgba(255, 255, 255, .01), transparent);
+        text-align: center;
+        padding: 48px 0
+      }
+
+      .site-footer {
+        padding: 18px 0;
+        border-top: 1px solid rgba(255, 255, 255, .02);
+        text-align: center;
+        color: var(--muted)
+      }
+
+      /* Responsive */
+      @media (max-width:900px) {
+        .hero-inner {
+          grid-template-columns: 1fr
+        }
+
+        .grid {
+          grid-template-columns: repeat(2, 1fr)
+        }
+
+        nav a {
+          display: none
+        }
+
+        .nav-inner {
+          justify-content: space-between
+        }
+      }
+
+      @media (max-width:520px) {
+        .grid {
+          grid-template-columns: 1fr
+        }
+
+        .hero-copy h1 {
+          font-size: 1.4rem
+        }
+      }
+
+      @media (max-width:900px) {
+        .screenshot-grid {
+          grid-template-columns: repeat(2, 1fr)
+        }
+
+        .screenshot-grid img {
+          height: 140px
+        }
+      }
+
+      @media (max-width:520px) {
+        .screenshot-grid {
+          grid-template-columns: 1fr
+        }
+
+        .screenshot-grid img {
+          height: 120px
+        }
+      }
+
+      /* Reveal on scroll */
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: transform .7s cubic-bezier(.2, .9, .2, 1), opacity .6s
+      }
+
+      .reveal.in-view {
+        opacity: 1;
+        transform: translateY(0)
+      }
+
+      /* Screenshots gallery */
+      .screenshot-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 18px
+      }
+
+      .screenshot-grid img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 8px;
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, .04)
+      }
+
+      .screenshot-grid figure {
+        margin: 0
+      }
+
+      .screenshot-grid figcaption {
+        font-size: 0.85rem;
+        color: var(--muted);
+        padding-top: 6px
+      }
+
+      /* Modal preview */
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(2, 6, 10, .72);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 120;
+        padding: 20px
+      }
+
+      .modal.open {
+        display: flex
+      }
+
+      .modal img {
+        max-width: 90%;
+        max-height: 80vh;
+        border-radius: 8px;
+        box-shadow: 0 10px 40px rgba(2, 6, 23, .8)
+      }
+
+      .modal .caption {
+        color: var(--muted);
+        margin-top: 12px;
+        text-align: center
+      }
+
+      /* small touches */
+      .nav-inner a:hover {
+        opacity: .95
+      }
+
+      .card {
+        box-shadow: 0 6px 30px rgba(2, 6, 23, .6)
+      }
+    </style>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <h1>Optimus GP — Windows optimizatsiya markazi</h1>
+          <p>154 ta sozlama, 8 tayyor paket, jonli monitoring va to'liq qaytarish (undo).
+            Asosiy maqsad: o'rnatuvchi yuklab olish va Optimus GP dan foydalanish qoidalari.</p>
+          <p class="buttons">
+            <a id="download" class="btn primary" href="OptimusGP-Setup-1.0.0.exe">O'rnatuvchini yuklab olish</a>
+          </p>
+        </div>
+        <div class="hero-art reveal">
+          <div class="card">
+            <img src="optimus.png" alt="Optimus GP">
+            <ul class="meta">
+              <li><strong>Platforma:</strong> Windows 10/11</li>
+              <li><strong>Versiya:</strong> 1.0.0</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="reveal">Asosiy Xususiyatlar</h2>
+        <div class="grid">
+          <article class="card reveal">
+            <h3>To'liq optimizatsiya</h3>
+            <p>Bir klik bilan xavfsiz va o'rtacha xavfli sozlamalarni qo'llash.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Jonli monitoring</h3>
+            <p>CPU / GPU / RAM ko'rsatkichlari va real vaqtda grafiklar.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Qaytarish (undo)</h3>
+            <p>Har bir o'zgartirish avval snapshot sifatida saqlanadi.</p>
+          </article>
+          <article class="card reveal">
+            <h3>154 ta tweak</h3>
+            <p>Kategoriyalarga bo'lingan, qidiruv va filtr bilan.</p>
+          </article>
+        </div>
+        <!-- screenshots gallery -->
+        <h3 class="reveal" style="margin-top:28px">Skrinshotlar</h3>
+        <div class="screenshot-grid">
+          <figure class="reveal"><img src="dash.png" alt="Dashboard">
+            <figcaption>Dashboard</figcaption>
+          </figure>
+          <figure class="reveal"><img src="dash_v2.png" alt="Dashboard v2">
+            <figcaption>Dashboard v2</figcaption>
+          </figure>
+          <figure class="reveal"><img src="setup_1_welcome.png" alt="Installer welcome">
+            <figcaption>Setup — Welcome</figcaption>
+          </figure>
+          <figure class="reveal"><img src="setup_3_progress.png" alt="Installer progress">
+            <figcaption>Setup — Progress</figcaption>
+          </figure>
+          <figure class="reveal"><img src="flow_4_progress.png" alt="Flow progress">
+            <figcaption>Flow — Progress</figcaption>
+          </figure>
+          <figure class="reveal"><img src="final_installed_app.png" alt="Installed app">
+            <figcaption>Installed App</figcaption>
+          </figure>
+          <figure class="reveal"><img src="tweaks.png" alt="Tweaks list">
+            <figcaption>Tweaks</figcaption>
+          </figure>
+          <figure class="reveal"><img src="opt.png" alt="Optimizations">
+            <figcaption>Optimizations</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="guide" class="section">
+      <div class="container">
+        <h2 class="reveal">Qanday ishlatish — Tez qollanma</h2>
+        <div class="guide reveal">
+          <h4>1. O'rnatish (tavsiya etiladi)</h4>
+          <ol>
+            <li>dist\OptimusGP-Setup-1.0.0.exe faylini ikki marta bosing.</li>
+            <li>Manzilni tanlang va kerakli qo'shimchalarni belgilang.</li>
+            <li>O'rnatish tugagach, ishga tushuring va Dashboardni tekshiring.</li>
+          </ol>
+
+          <h4>2. Dastur ichida</h4>
+          <ul>
+            <li>Bosh sahifadagi katta toggle bilan tez optimizatsiya.</li>
+            <li>Tayyor paketlardan birini tanlang (FPS, QoL, Maxfiylik va h.k.).</li>
+            <li>O'zgartirishdan oldin Backup yaratiladi — tiklash mumkin.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section footer-cta">
+      <div class="container reveal">
+        <h3>Hozir yuklab oling</h3>
+        <p>Optimus GP yordamida Windows'ingizni tezlashtiring va sozlang.</p>
+        <a class="btn primary" href="OptimusGP-Setup-1.0.0.exe">O'rnatuvchini yuklab olish</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Optimus GP — Bepul va ochiq</p>
+      <p>README va qo'llanma uchun loyiha papkasiga qarang.</p>
+    </div>
+  </footer>
+
+  <script src="app.js">
+    // Reveal elements on scroll using IntersectionObserver
+    document.addEventListener('DOMContentLoaded', function () {
+      // staggered reveal: group by parent and apply incremental delay
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            // compute stagger based on index among siblings with class reveal
+            const siblings = Array.from(el.parentElement.querySelectorAll('.reveal'));
+            const idx = Math.max(0, siblings.indexOf(el));
+            el.style.transitionDelay = (idx * 80) + 'ms';
+            el.classList.add('in-view');
+            observer.unobserve(el);
+          }
+        });
+      }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // Smooth anchor scroll for in-page links
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href.length > 1) {
+            e.preventDefault();
+            const tgt = document.querySelector(href);
+            if (tgt) tgt.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // modal screenshot preview
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.innerHTML = '<div><img src="" alt="preview"><div class="caption"></div></div>';
+      document.body.appendChild(modal);
+      const modalImg = modal.querySelector('img');
+      const modalCap = modal.querySelector('.caption');
+
+      document.querySelectorAll('.screenshot-grid img').forEach(img => {
+        img.addEventListener('click', () => {
+          modalImg.src = img.src;
+          modalCap.textContent = img.alt || '';
+          modal.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+      modal.addEventListener('click', (e) => { if (e.target === modal || e.target === modalImg) closeModal(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    });
+
+  </script>
+</body>
+
+</html>
